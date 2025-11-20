@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Acceso a Sistemas de Planeamiento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            width: 450px;
+            height: auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4));
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .system-button {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .system-button:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 25px 0 rgba(31, 38, 135, 0.4);
+        }
+
+        .system-button i {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .system-button h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .system-button p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            line-height: 1.3;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                width: 350px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .buttons-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .system-button {
+                min-height: 130px;
+                padding: 18px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 280px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/0NjGmBqf/Logo-Secretaria-de-Planeamiento-Para-Pag-WEB.png" alt="Logo Secretaría de Planeamiento" class="logo">
+        </div>
+        
+        <header>
+            <h1>Panel de Acceso a Sistemas de Planeamiento</h1>
+            <p class="subtitle">Seleccione el sistema al que desea acceder</p>
+        </header>
+        
+        <div class="buttons-grid">
+            <div class="system-button" onclick="openSystem('https://script.google.com/macros/s/AKfycbzl20TvjBtSrgNqR4k7KNjFkV2UN1qlbiqzisLR05VoabcpeQzXi0hlbap31jyi9pPP/exec')">
+                <i class="fas fa-file-invoice"></i>
+                <h3>Generar Números de Pases y Notas</h3>
+                <p>Sistema para generar números de pases y notas</p>
+            </div>
+            
+            <div class="system-button" onclick="openSystem('https://script.google.com/macros/s/AKfycby_3rv-nOIYxqqtw349eVO8k2WAdURcSoUvviCA9ervWfZ_T0PnbDdaoiI9Px8w2pD2aA/exec')">
+                <i class="fas fa-folder-open"></i>
+                <h3>Documentos - Pases y Notas</h3>
+                <p>Acceso a documentos de pases y notas</p>
+            </div>
+            
+            <div class="system-button" onclick="openSystem('https://script.google.com/macros/s/AKfycbxGSm-WVa2PsROpm7jE2RyEqE30oGKnjX_mYY4tCG_zXM0OA5smN7Zlt24kmDmQG7Ym/exec')">
+                <i class="fas fa-book"></i>
+                <h3>Libro de Acta - Agendar Exptes/Notas</h3>
+                <p>Sistema de libro de acta para agendar expedientes y notas</p>
+            </div>
+            
+            <div class="system-button" onclick="openSystem('https://script.google.com/a/macros/edusalta.gov.ar/s/AKfycbz1KhEECNShpyHoc4vG536rNKbIOcLMqN32eJvEJIMAAuZTDfjbZ-lVcKR8ElKHc29W/exec')">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Sistema de Calendario</h3>
+                <p>Calendario para gestión de eventos y actividades</p>
+            </div>
+            
+            <div class="system-button" onclick="openSystem('https://ortiz371-hub.github.io/BuscadorResoluciones.github.io/')">
+                <i class="fas fa-search"></i>
+                <h3>Resoluciones Planeamiento</h3>
+                <p>Buscador de resoluciones de planeamiento</p>
+            </div>
+            
+            <div class="system-button" onclick="openSystem('https://script.google.com/macros/s/AKfycby7UicSckAm2SsaRfK9oloznyoHfQ4V7C_z8rnMrGUAJqonvaBqtttcVwQqaQZOD2PIHQ/exec')">
+                <i class="fas fa-list-ol"></i>
+                <h3>Números de Mesas</h3>
+                <p>Sistema de gestión de números de mesas</p>
+            </div>
+            
+            <!-- TARJETAS ADICIONALES PARA USO FUTURO -->
+            
+            <div class="system-button" onclick="openSystem('URL_DEL_SISTEMA_AQUI')">
+                <i class="fas fa-plus"></i>
+                <h3>VACIO</h3>
+                <p>Descripción del sistema</p>
+            </div>
+            
+            <div class="system-button" onclick="openSystem('URL_DEL_SISTEMA_AQUI')">
+                <i class="fas fa-plus"></i>
+                <h3>VACIO</h3>
+                <p>Descripción del sistema</p>
+            </div>
+            -->
+        </div>
+        
+        <footer>
+            <p>© 2025 Secretaría Privada de Planeamiento Educativa y Desarrollo Profesional Docente- Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        function openSystem(url) {
+            window.open(url, '_blank');
+        }
+        
+        // Función auxiliar para agregar nuevas tarjetas fácilmente
+        function addNewSystem(name, url, description = "Descripción del sistema", icon = "fas fa-plus") {
+            const grid = document.querySelector('.buttons-grid');
+            const newCard = document.createElement('div');
+            newCard.className = 'system-button';
+            newCard.onclick = () => openSystem(url);
+            newCard.innerHTML = `
+                <i class="${icon}"></i>
+                <h3>${name}</h3>
+                <p>${description}</p>
+            `;
+            grid.appendChild(newCard);
+        }
+        
+        // Ejemplo de cómo usar la función:
+        // addNewSystem("Mi Nuevo Sistema", "https://ejemplo.com", "Descripción del nuevo sistema", "fas fa-star");
+    </script>
+</body>
+</html>
